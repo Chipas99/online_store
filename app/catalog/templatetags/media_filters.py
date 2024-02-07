@@ -3,6 +3,6 @@ from django import template
 register = template.Library()
 
 
-@register.filter
-def mediapath(value):
-    return f"/media/{value}"
+@register.simple_tag
+def mediapath(obj):
+    return obj.preview.url if obj.preview else '/default/path/to/image.jpg'

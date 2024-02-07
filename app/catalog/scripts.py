@@ -1,4 +1,4 @@
-from app.catalog.models import Category
+from catalog.models import Category
 
 # Создание новых категорий
 Category.objects.create(name='Category 1')

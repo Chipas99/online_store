@@ -1,14 +1,15 @@
 from django.contrib import admin
-from .models import Category, Product
 
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+from catalog.models import Product, Category
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price_per_one', 'category')
-    list_filter = ('category',)  # Добавляем фильтр по категории
-    search_fields = ('name', 'description')  # Добавляем поля для поиска
+    list_display = ('id', 'name', 'price_per_one', 'category',)
+    list_filter = ('category',)
+    search_fields = ('name', 'description',)
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
