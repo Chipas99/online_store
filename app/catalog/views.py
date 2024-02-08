@@ -24,10 +24,10 @@ def contacts(request):
     return render(request, 'catalog/contacts.html')
 
 
-def product_detail(request):
-    product_list = Product.objects.all()
+def product_detail(request, pk):
+    product = Product.objects.filter(pk=pk).first()
     context = {
-        'object_list': product_list,
+        'object': product,
         'title': 'Товары'
     }
 
